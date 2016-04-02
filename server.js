@@ -65,36 +65,9 @@ app.post('/register', function(req, res) {
     console.log("%s", username)
 });
 
-<<<<<<< HEAD
 // classes page 
 app.get('/classes', function(req, res) {
     res.render('pages/classes');
-});
-
-=======
->>>>>>> origin/master
-
-app.get('/setup', function(req, res) {
-
-    // create a sample user
-    var nick = new Instructor();
-    nick.first = "Nick";
-    nick.last = "March";
-    nick.email = "nick@march.com";
-    nick.password = "password";
-    nick.biography = "I am a super coder monkey";
-    console.log(nick);
-    // save the sample user
-    nick.save(function(err) {
-        if (err) {
-            console.log("Error creating sample user");
-            res.send(err);
-        }
-        else {
-            console.log('Instructor saved successfully');
-            res.json({success: true});
-        }
-    });
 });
 
 var apiRouter = express.Router();
