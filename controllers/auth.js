@@ -37,7 +37,7 @@ exports.authenticateInstructor = function(req, res) {
     );
 };
 
-exports.authenticateParent = function(req, req){
+exports.authenticateParent = function(req, res){
     SexyGuardian.findOne({
             email: req.body.email
         }, function (err, sexyGuardian) {
