@@ -15,7 +15,7 @@ var InstructorController = require('./controllers/instructor');
 var AuthController = require('./controllers/auth');
 var CourseController = require('./controllers/course');
 var SexyGuardianController = require('./controllers/sexy_guardian');
-var StudentController = require('./Controllers/student');
+var StudentController = require('./controllers/student');
 
 // =======================
 // configuration =========
