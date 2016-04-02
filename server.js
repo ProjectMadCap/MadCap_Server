@@ -99,7 +99,9 @@ apiRouter.route('/sexyGuardian')
 app.route('/authenticate')
     .post(AuthController.authenticateInstructor);
 
-apiRouter.use(AuthController.authentication(req, res, next));
+apiRouter.use(function(req, res, next) {
+    AuthController.authentication(req, res, next);
+});
 
 app.use('/api', apiRouter);
 
