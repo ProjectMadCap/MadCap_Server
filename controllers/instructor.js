@@ -8,7 +8,7 @@ exports.postInstructor = function(req, res, done){
 	//create new Instructor instance
 	console.log('Trying to add Instructor to database');
 
-	var Instructor = new({
+	var instructor = new Instructor({
 		first: req.body.first,
 		last: req.body.last,
 		email: req.body.email,
@@ -16,7 +16,7 @@ exports.postInstructor = function(req, res, done){
 	});
 
 	//Save Instructor
-	Instructor.save(function(err){
+	instructor.save(function(err){
 		if(err){
 			console.log('Add instructor failed, Email Taken');
 			res.send('Email Taken');

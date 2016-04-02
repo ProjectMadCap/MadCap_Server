@@ -58,20 +58,20 @@ app.get('/setup', function(req, res) {
 var apiRouter = express.Router();
 
 //Endpoint for api/Instructor
-apiRouter.route('/Instructor')
+apiRouter.route('/instructor')
 	.post(InstructorController.postInstructor)
 	.get(InstructorController.getInstructor); //TODO: add authentication
 
-apiRouter.route('/Course')
+apiRouter.route('/course')
 	.post(CourseController.postCourse)
 	.get(CourseController.getCourse);
 
-apiRouter.route('/Sexy_Guardian')
+apiRouter.route('/sexyGuardian')
 	.post(SexyGuardianController.postGuardian)
 	.get(SexyGuardianController.getGuardian); //TODO: add authentication
 
 
-apiRouter.route('Instructor/authenticate')
+apiRouter.route('instructor/authenticate')
     .post(AuthController.authenticateInstructor);
 
 app.use('/api', apiRouter);
