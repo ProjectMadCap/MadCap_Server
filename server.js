@@ -16,6 +16,8 @@ var AuthController = require('./controllers/auth');
 var CourseController = require('./controllers/course');
 var SexyGuardianController = require('./controllers/sexy_guardian');
 var StudentController = require('./controllers/student');
+var BehaviorController = require('./controllers/behavior');
+var BehaviorHistoryController = require('./controllers/behavior_history');
 
 // =======================
 // configuration =========
@@ -87,26 +89,47 @@ app.get('/setup', function(req, res) {
 
 var apiRouter = express.Router();
 
-//Endpoint for api/Instructor
+//----------------------------------------------------------------------------
 apiRouter.route('/instructor')
 	.post(InstructorController.postInstructor)
 	.get(InstructorController.getInstructor); //TODO: add authentication
 
 apiRouter.route('/instructor/{email}')
     .post(InstructorController.getInstructor);
-
+//----------------------------------------------------------------------------
 apiRouter.route('/course')
-	.post(CourseController.postCourse)
+	.post(CourseController.postCourse);
+
+apiRouter.route('/course/{_id}')
 	.get(CourseController.getCourse);
+
+//----------------------------------------------------------------------------
 
 apiRouter.route('/sexyGuardian')
 	.post(SexyGuardianController.postGuardian)
 	.get(SexyGuardianController.getGuardian); //TODO: add authentication
 
+apiRouter.route('sexyGuardian/{email}')
+	.get(SexyGuardianController.getGuardianNow);
+
 apiRouter.route('/student')
     .post(StudentController.postStudent)
     .get(StudentController.getStudent);
 
+//----------------------------------------------------------------------------
+apiRouter.route('/behavior')
+	.post(BehaviorController.postBehavior);
+
+apiRouter.route('/behavior/{_id}')
+	.get(BehaviorController.getBehavior);
+//----------------------------------------------------------------------------
+
+apiRouter.route('/behavior_history')
+	.post(BehaviorHistoryController.postBehaviorHistory);
+
+apiRouter.route('/behavior_history/{_id}')
+	.get(BehaviorHistoryController.getBehaviorHistory);
+//----------------------------------------------------------------------------
 
 app.route('/authenticate')
     .post(AuthController.authenticateInstructor);
