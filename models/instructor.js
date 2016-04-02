@@ -17,13 +17,16 @@ InstructorSchema.pre('save', function(done){
 	console.log("Nick's shitty ass code");
 	//break if pass hasnt changed
 	if(!Instructor.isModified('password')) return done();
-	console.log('password not modified');
+	console.log('password modified');
 	//Pass Changed
 	bcrypt.genSalt(5, function(err, salt){
 		if(err) return done(err);
 		console.log('hash this biaaatch');
-		bcrypt.hash(Instructor.password, salt, null, function(err, hash){
-			if(err) return done(err);
+		bcrypt.hash(Instructor.password, salt, function(err, hash){
+			if(err) {
+				console.log("error inside hash: " + err);
+				return done(err);
+			}
 			console.log('ooOOOoooo you hash nasty');
 			Instructor.password = hash;
 			console.log('calling done');

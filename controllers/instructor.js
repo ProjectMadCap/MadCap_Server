@@ -18,7 +18,7 @@ exports.postInstructor = function(req, res, done){
 	//Save Instructor
 	instructor.save(function(err){
 		if(err){
-			console.log('Add instructor failed, Email Taken');
+			console.log('Add instructor failed, Email Taken' + err);
 			res.send('Email Taken');
 		}
 		else{
