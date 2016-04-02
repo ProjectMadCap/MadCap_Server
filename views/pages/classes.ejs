@@ -7,7 +7,7 @@
 <title>My Classes</title>
 
 <!--STYLESHEETS-->
-<link href="static/css/style.css" rel="stylesheet" type="text/css" />
+<link href="" rel="stylesheet" type="text/css" />
 
 <!--SCRIPTS-->
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
@@ -15,23 +15,30 @@
 <script type="text/javascript">
 $(document).ready(function() {
 
+
 });
 </script>
 
 </head>
 <body>
 
-<!--HOME-->
+<!--CLASSES-->
     <main>
 
-    <!--HEADER-->
-    <div>
-    <!--TITLE--><h1>My Classes</h1><!--END TITLE-->
-    </div>
-    <!--END HEADER-->
-    <div>
-    </div>
     <!--CONTENT-->
+    <div data-role="page" id="pageone">
+        <div data-role="main" class="ui-content">
+            <h2>My Classes</h2>
+            <ul id="classes" data-role="listview">
+                <li><a href="">Math</a></li>
+                <li><a href="">Science</a></li>
+                <li><a href="">Yoga</a></li>
+            </ul>
+    </div>
+</div> 
+
+        <button><a href="/home" class="button" style="text-decoration:none">Back</a></button>
+        <button><a href="" class="button" style="text-decoration:none">Add Class</a></button>
     <div>
 
 

@@ -69,6 +69,11 @@ app.get('/classes', function(req, res) {
     res.render('pages/classes');
 });
 
+// classForm page
+app.get('/classes', function(req, res) {
+    res.render('pages/classForm');
+});
+
 var apiRouter = express.Router();
 
 //Endpoint for api/Instructor
