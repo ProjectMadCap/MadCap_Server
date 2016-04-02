@@ -65,6 +65,14 @@ app.post('/register', function(req, res) {
     console.log("%s", username)
 });
 
+<<<<<<< HEAD
+// classes page 
+app.get('/classes', function(req, res) {
+    res.render('pages/classes');
+});
+
+=======
+>>>>>>> origin/master
 
 app.get('/setup', function(req, res) {
 
