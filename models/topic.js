@@ -4,13 +4,12 @@ var mongoose = require('mongoose');
 //Define Schema
 var TopicSchema = new mongoose.Schema({
 
-	_id: Schema.Types.ObjectId,
-	subject_id: Schema.Types.ObjectId,
+	subject_id: String,
 	description: String,
 	name: String
-	//TODO resources
+	//TODO: resources
 
-})
+});
 
 //Export the model=
-module.exports = mongoose.model('topic', TopicSchema);
+module.exports = mongoose.model('Topic', TopicSchema);

@@ -2,14 +2,13 @@
 var mongoose = require('mongoose');
 
 //Define Schema
-var Course_HistorySchema = new mongoose.Schema({
+var CourseHistorySchema = new mongoose.Schema({
 
-	_id: Schema.Types.ObjectId,
-	student_id: Schema.Types.ObjectId,
-	course_id: Schema.Types.ObjectId,
+	student_id: String,
+	course_id: String,
 	quarter: String
 
-})
+});
 
 //Export the model=
-module.exports = mongoose.model('course_history' Course_HistorySchema);
+module.exports = mongoose.model('Course_History', CourseHistorySchema);

@@ -22,5 +22,23 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
+app.get('/setup', function(req, res) {
+
+    // create a sample user
+    var nick = new Instructor({
+        name: 'Nick Cerminara',
+        password: 'password',
+        admin: true
+    });
+
+    // save the sample user
+    nick.save(function(err) {
+        if (err) throw err;
+
+        console.log('User saved successfully');
+        res.json({ success: true });
+    });
+});
+
 app.listen(port);
 console.log("Server running at 8080");
