@@ -12,6 +12,7 @@ var app = express();
 
 //Add Controllers
 var InstructorController = require('./controllers/instructor');
+var CourseController = require('./Controllers/Course');
 
 // =======================
 // configuration =========
@@ -56,11 +57,16 @@ var apiRouter = express.Router();
 apiRouter.route('/Instructor')
 	.post(InstructorController.postInstructor);
 
+apiRouter.route('/Course')
+	.post(CourseController.postCourse)
+	.get(CourseController.getCourse);
+	
 app.use('/api', apiRouter);
 
 app.get('/', function(req, res) {
     res.send('Hello! The API is at http://localhost:' + port + '/api');
 });
+
 
 app.listen(port);
 console.log("Server running at 8080");
