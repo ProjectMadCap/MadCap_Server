@@ -42,7 +42,7 @@ app.get('/login', function(req, res) {
 });
  
 app.post('/login', function(req, res) {
-    res.send(req);
+    res.send("blurb");
 });
 
 
