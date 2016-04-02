@@ -27,8 +27,13 @@ SexyGuardianSchema.pre('save', function(done){
 });
 
 SexyGuardianSchema.methods.verifyPassword = function(password, done){
+    console.log("In verify - password: " + password);
+    console.log("done: " + done);
     bcrypt.compare(password, this.password, function(err, isMatch){
+        console.log("err: " + err);
+        console.log("isMatch: " + isMatch);
         if(err) return done(err);
+        console.log("no error");
         done(null, isMatch);
     });
 };
