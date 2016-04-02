@@ -5,13 +5,13 @@ var ejs = require('ejs');
 var session = require('express-session');
 var passport = require('passport');
 var morgan = require('morgan');
-var jwt    = require('jsonwebtoken'); // used to create, sign, and verify tokens
 var config = require('./config'); // get our config file
 var Instructor = require('./models/instructor');
 var app = express();
 
 //Add Controllers
 var InstructorController = require('./controllers/instructor');
+var AuthController = require('./controllers/auth');
 var CourseController = require('./controllers/course');
 var SexyGuardianController = require('./controllers/sexy_guardian');
 
@@ -44,9 +44,12 @@ app.get('/setup', function(req, res) {
     console.log(nick);
     // save the sample user
     nick.save(function(err) {
-        if (err) res.send(err);
+        if (err) {
+            console.log("Error creating sample user");
+            res.send(err);
+        }
         else {
-            console.log('User saved successfully');
+            console.log('Instructor saved successfully');
             res.json({success: true});
         }
     });
@@ -68,12 +71,14 @@ apiRouter.route('/Sexy_Guardian')
 	.get(SexyGuardianController.getGuardian); //TODO: add authentication
 
 
+apiRouter.route('Instructor/authenticate')
+    .post(AuthController.authenticateInstructor);
+
 app.use('/api', apiRouter);
 
 app.get('/', function(req, res) {
     res.send('Hello! The API is at http://localhost:' + port + '/api');
 });
-
 
 app.listen(port);
 console.log("Server running at 8080");
