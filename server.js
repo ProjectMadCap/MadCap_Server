@@ -111,7 +111,7 @@ apiRouter.route('/sexyGuardian')
 	.post(SexyGuardianController.postGuardian)
 	.get(SexyGuardianController.getGuardian); //TODO: add authentication
 
-apiRouter.route('sexyGuardian/:email')
+apiRouter.route('/sexyGuardian/:email')
 	.get(SexyGuardianController.getGuardianNow);
 
 apiRouter.route('/student')
@@ -135,6 +135,8 @@ apiRouter.route('/behavior_history/{_id}')
 
 app.route('/authenticate')
     .post(AuthController.authenticateInstructor);
+
+app.post('/authenticate/device', AuthController.authenticateParent);
 
 apiRouter.use(function(req, res, next) {
     AuthController.authentication(req, res, next);

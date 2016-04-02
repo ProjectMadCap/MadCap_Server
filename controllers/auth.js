@@ -35,6 +35,44 @@ exports.authenticateInstructor = function(req, res) {
         }
     );
 };
+
+exports.authenticateParent = function(req, req){
+    SexyGuardian.findOne({
+            email: req.body.email
+        }, function (err, sexyGuardian) {
+
+            if (err) res.send(err);
+
+            if (!sexyGuardian) {
+                res.json({success: false, message: 'Authentication failed. Instructor not found.'});
+            } else if (sexyGuardian) {
+
+                // check if password matches
+                sexyGuardian.verifyPassword(req.body.password, function(err, isMatch){
+                    if(err)
+                        res.json({success: false, message: 'Authentication failed. Error:' + err});
+                    if(!isMatch)
+                        res.json({success: false, message: 'Authentication failed. Wrong password.'});
+                    // if user is found and password is right
+                    // create a token
+                    var token = jwt.sign(sexyGuardian, config.secret, {
+                        expiresInMinutes: 1440 // expires in 24 hours
+                    });
+                    var sess = req.session;
+                    sess.token = token;
+                    // return the information including token as JSON
+                    res.json({
+                        success: true,
+                        message: 'Enjoy your token!',
+                        token: token
+                    });
+                });
+            }
+
+        }
+    );
+};
+
 exports.authentication = function(req, res, next) {
 
     // check header or url parameters or post parameters for token
