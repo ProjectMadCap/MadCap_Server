@@ -7,36 +7,26 @@
 <title>Registration</title>
 
 <!--STYLESHEETS-->
-<link href="static/css/style.css" rel="stylesheet" type="text/css" />
+<link href="" rel="stylesheet" type="text/css" />
 
 <!--SCRIPTS-->
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
-<!--Slider-in icons-->
 
 </head>
 <body>
 
-<!--WRAPPER-->
-<div id="wrapper">
-
-    <!--SLIDE-IN ICONS-->
-    <div class="user-icon"></div>
-    <div class="pass-icon"></div>
-    <!--END SLIDE-IN ICONS-->
-
 <!--LOGIN FORM-->
 <!--CHANGE LOGIN FORM CLASS IN CSS-->
-<form name="register-form" class="login-form" action="/api/instructor" method="post">
+<form name="register-form" action="/api/instructor" method="post">
 
     <!--HEADER-->
     <div class="header">
     <!--TITLE--><h1>Registration</h1><!--END TITLE-->
-    <!--DESCRIPTION--><span></span><!--END DESCRIPTION-->
     </div>
     <!--END HEADER-->
     
     <!--CONTENT-->
-    <div class="content">
+    <div>
     <input name="firstName" type="text" class="input firstName" value="First Name" onfocus="this.value=''" />
     <input name="lastName" type="text" class="input lastName" value="Last Name" onfocus="this.value=''" />
     <input name="email" type="text" class="input email" value="Email" onfocus="this.value=''" />
@@ -45,18 +35,13 @@
     <!--END CONTENT-->
     
     <!--FOOTER-->
-    <div class="footer">
+    <div>
     <!--REGISTER BUTTON--><input type="submit" name="submit" value="Register" class="button" /><!--END REGISTER BUTTON-->
     </div>
     <!--END FOOTER-->
 
 </form>
 <!--END LOGIN FORM-->
-
-</div>
-<!--END WRAPPER-->
-
-<!--GRADIENT--><div class="gradient"></div><!--END GRADIENT-->
 
 </body>
 </html>
