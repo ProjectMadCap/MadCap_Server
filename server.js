@@ -41,7 +41,7 @@ app.get('/login', function(req, res) {
 });
  
 app.post('/login', function(req, res) {
-
+    res.send(req);
 });
 
 
@@ -95,8 +95,8 @@ apiRouter.route('/sexyGuardian')
 	.get(SexyGuardianController.getGuardian); //TODO: add authentication
 
 
-//apiRouter.route('/instructor/authenticate')
-//    .post(AuthController.authenticateInstructor);
+apiRouter.route('/instructor/authenticate')
+    .post(AuthController.authenticateInstructor);
 
 app.use('/api', apiRouter);
 
