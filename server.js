@@ -27,8 +27,12 @@ app.set('superSecret', config.secret); // secret variable
 app.set('view engine', 'ejs');
 
 // use body parser so we can get info from POST and/or URL parameters
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+//app.use(bodyParser.urlencoded({ extended: false }));
+//app.use(bodyParser.json());
+
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 
 // use morgan to log requests to the console
 app.use(morgan('dev'));
