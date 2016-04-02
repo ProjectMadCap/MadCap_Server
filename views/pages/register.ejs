@@ -26,7 +26,7 @@
 
 <!--LOGIN FORM-->
 <!--CHANGE LOGIN FORM CLASS IN CSS-->
-<form name="register-form" class="login-form" action="http://192.168.46.81:6000/api/instructor" method="post">
+<form name="register-form" class="login-form" action="/api/instructor" method="post">
 
     <!--HEADER-->
     <div class="header">
@@ -37,9 +37,10 @@
     
     <!--CONTENT-->
     <div class="content">
-    <input name="first" type="text" class="input firstName" value="First Name" onfocus="this.value=''" />
-    <input name="last" type="text" class="input lastName" value="Last Name" onfocus="this.value=''" />
+    <input name="firstName" type="text" class="input firstName" value="First Name" onfocus="this.value=''" />
+    <input name="lastName" type="text" class="input lastName" value="Last Name" onfocus="this.value=''" />
     <input name="email" type="text" class="input email" value="Email" onfocus="this.value=''" />
+    <input name="username" type="text" class="input username" value="Username" onfocus="this.value=''" />
     <input name="password" type="password" class="input password" value="Password" onfocus="this.value=''" />
     </div>
     <!--END CONTENT-->

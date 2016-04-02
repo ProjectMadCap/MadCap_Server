@@ -56,7 +56,8 @@ app.get('/register', function(req, res) {
 });
 
 app.post('/register', function(req, res) {
-
+    var username = req.body.username;
+    console.log("%s", username)
 });
 
 
