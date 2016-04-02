@@ -22,7 +22,7 @@ exports.postInstructor = function(req, res, done){
 			res.send('Email Taken');
 		}
 		else{
-			console.log('Sucess! Instructor added');
+			console.log('Success! Instructor added');
 			res.send('Thanks for Registering');
 		}
 	});

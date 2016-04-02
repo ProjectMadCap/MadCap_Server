@@ -20,7 +20,7 @@ var StudentController = require('./controllers/student');
 // =======================
 // configuration =========
 // =======================
-var port = process.env.PORT || 80; // used to create, sign, and verify tokens
+var port = process.env.PORT || 8080; // used to create, sign, and verify tokens
 mongoose.connect(config.database); // connect to database
 app.set('superSecret', config.secret); // secret variable
 
@@ -34,6 +34,8 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({
     extended: true
 }));
+
+app.use(session({secret: 'secretSecrets'}));
 
 // use morgan to log requests to the console
 app.use(morgan('dev'));
@@ -88,12 +90,12 @@ app.get('/setup', function(req, res) {
 var apiRouter = express.Router();
 
 //Endpoint for api/Instructor
-apiRouter.route('/instructor')
+apiRouter.route('/instructor/')
 	.post(InstructorController.postInstructor)
 	.get(InstructorController.getInstructor); //TODO: add authentication
 
-apiRouter.route('/instructor/{email}')
-    .post(InstructorController.getInstructor);
+apiRouter.route('/instructor/:email')
+    .get(InstructorController.getInstructorNow);
 
 apiRouter.route('/course')
 	.post(CourseController.postCourse)

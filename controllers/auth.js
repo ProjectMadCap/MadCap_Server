@@ -25,13 +25,10 @@ exports.authenticateInstructor = function(req, res) {
                     var token = jwt.sign(instructor, config.secret, {
                         expiresInMinutes: 1440 // expires in 24 hours
                     });
-
+                    var sess = req.session;
+                    sess.token = token;
                     // return the information including token as JSON
-                    res.json({
-                        success: true,
-                        message: 'Enjoy your token!',
-                        token: token
-                    });
+                    res.redirect('/home');
                 });
             }
 
@@ -42,7 +39,9 @@ exports.authentication = function(req, res, next) {
 
     // check header or url parameters or post parameters for token
     var token = req.body.token || req.query.token || req.headers['x-access-token'];
-
+    var sess = req.session;
+    if(token == null && sess != null)
+        token = sess.token;
     // decode token
     if (token) {
 
