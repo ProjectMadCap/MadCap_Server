@@ -1,5 +1,6 @@
 var jwt = require('jsonwebtoken'); // used to create, sign, and verify tokens
 var Instructor = require("../models/instructor");
+var SexyGuardian = require("../models/sexyGuardian");
 var config = require('../config.js');
 
 exports.authenticateInstructor = function(req, res) {
