@@ -32,6 +32,30 @@ app.use(bodyParser.json());
 // use morgan to log requests to the console
 app.use(morgan('dev'));
 
+// Use express static for images, css, and js files
+app.use('/static', express.static('public'));
+
+// login page 
+app.get('/login', function(req, res) {
+    res.render('pages/login');
+});
+ 
+app.post('/login', function(req, res) {
+
+});
+
+
+// register page 
+app.get('/register', function(req, res) {
+    res.render('pages/register');
+});
+
+app.post('/register', function(req, res) {
+    var username = req.body.username;
+    console.log("%s", username)
+});
+
+
 app.get('/setup', function(req, res) {
 
     // create a sample user
