@@ -5,6 +5,7 @@ var ejs = require('ejs');
 var session = require('express-session');
 var passport = require('passport');
 var morgan = require('morgan');
+var jwt = require('jsonwebtoken');
 var config = require('./config'); // get our config file
 var Instructor = require('./models/instructor');
 var app = express();
@@ -95,8 +96,10 @@ apiRouter.route('/sexyGuardian')
 	.get(SexyGuardianController.getGuardian); //TODO: add authentication
 
 
-apiRouter.route('/instructor/authenticate')
+app.route('/authenticate')
     .post(AuthController.authenticateInstructor);
+
+apiRouter.use(AuthController.authentication(req, res, next));
 
 app.use('/api', apiRouter);
 
