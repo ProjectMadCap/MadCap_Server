@@ -31,3 +31,15 @@ exports.postInstructor = function(req, res, done){
 exports.getInstructor = function(req, res){
 	res.send('Authenticated');
 };
+
+exports.getInstructorNow = function(req, res){
+	Instructor.findOne({ 'email' : req.params.email}, function(err, instructor){
+		if(err) res.send(err);
+
+		console.log("Finding course: " + req.params.email);
+		console.log(JSON.stringify(instructor, null, 2));
+
+		//success
+		res.json(instructor);
+	});
+};
