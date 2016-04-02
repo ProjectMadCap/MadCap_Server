@@ -49,20 +49,15 @@ app.use('/static', express.static('public'));
 app.get('/login', function(req, res) {
     res.render('pages/login');
 });
- 
-app.post('/login', function(req, res) {
-    res.send("blurb");
-});
-
 
 // register page 
 app.get('/register', function(req, res) {
     res.render('pages/register');
 });
 
-app.post('/register', function(req, res) {
-    var username = req.body.username;
-    console.log("%s", username)
+// register page 
+app.get('/home', function(req, res) {
+    res.render('pages/home');
 });
 
 // classes page 
