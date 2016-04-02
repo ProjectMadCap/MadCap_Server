@@ -3,6 +3,7 @@ var Instructor = require("../models/instructor");
 var config = require('../config.js');
 
 exports.authenticateInstructor = function(req, res) {
+    console.log(req);
     Instructor.findOne({
             email: req.body.email
         }, function (err, instructor) {
