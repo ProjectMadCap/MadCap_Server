@@ -26,10 +26,10 @@ exports.postCourse = function(req, res, done){
 };
 
 exports.getCourse= function(req, res){
-	course.findOne({ '_id' : req.body._id}, function(err, course){
+	course.findOne({ '_id' : req.params._id}, function(err, course){
 		if(err) res.send(err);
 
-		console.log("Finding course: " + req.body._id);
+		console.log("Finding course: " + req.params._id);
 		console.log(JSON.stringify(course, null, 2));
 
 		//success
