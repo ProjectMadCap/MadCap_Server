@@ -18,6 +18,10 @@ var SexyGuardianController = require('./controllers/sexyGuardian');
 var StudentController = require('./controllers/student');
 var BehaviorController = require('./controllers/behavior');
 var BehaviorHistoryController = require('./controllers/behavior_history');
+var CourseHistoryController = require('./controllers/courseHistory');
+var SubjectController = require('./controllers/subject');
+var TopicController = require('./controllers/topic');
+var TopicHistoryController = require('./controllers/topicHistory');
 
 // =======================
 // configuration =========
@@ -75,6 +79,8 @@ apiRouter.route('/instructor/')
 apiRouter.route('/instructor/:email')
     .post(InstructorController.getInstructor);
 
+//----------------------------------------------------------------------------
+
 apiRouter.route('/course')
 	.post(CourseController.postCourse);
 
@@ -107,6 +113,38 @@ apiRouter.route('/behavior_history')
 
 apiRouter.route('/behavior_history/{_id}')
 	.get(BehaviorHistoryController.getBehaviorHistory);
+//----------------------------------------------------------------------------
+
+apiRouter.route('/courseHistory')
+	.post(CourseHistoryController.postCourseHistory);
+
+apiRouter.route('/courseHistory/:id')
+	.get(CourseHistoryController.getCourseHistory);
+
+//----------------------------------------------------------------------------
+
+apiRouter.route('/subject')
+	.post(SubjectController.postSubject);
+
+apiRouter.route('/subject/:_id')
+	.get(SubjectController.getSubject);
+
+//----------------------------------------------------------------------------
+
+apiRouter.route('/topic')
+	.post(TopicController.postTopic);
+
+apiRouter.route('/topic/:_id')
+	.get(TopicController.getTopic);
+
+//----------------------------------------------------------------------------
+
+apiRouter.route('/topicHistory')
+	.post(TopicHistoryController.postTopicHistory);
+
+apiRouter.route('/topicHistory/:id')
+	.get(TopicHistoryController.getTopicHistory);
+
 //----------------------------------------------------------------------------
 
 app.route('/authenticate')
