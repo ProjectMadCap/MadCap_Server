@@ -1,4 +1,5 @@
 var mongoose = require("mongoose");
+var bcrypt = require('bcryptjs');
 
 var SexyGuardianSchema = new mongoose.Schema({
     first: String,
