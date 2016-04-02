@@ -55,6 +55,12 @@ app.get('/home', function(req, res) {
     res.render('pages/home');
 });
 
+// classes page 
+app.get('/classes', function(req, res) {
+    res.render('pages/classes');
+});
+
+
 app.get('/setup', function(req, res) {
 
     // create a sample user
