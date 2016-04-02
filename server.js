@@ -15,6 +15,7 @@ var InstructorController = require('./controllers/instructor');
 var AuthController = require('./controllers/auth');
 var CourseController = require('./controllers/course');
 var SexyGuardianController = require('./controllers/sexy_guardian');
+var StudentController = require('./Controllers/student');
 
 // =======================
 // configuration =========
@@ -91,6 +92,9 @@ apiRouter.route('/instructor')
 	.post(InstructorController.postInstructor)
 	.get(InstructorController.getInstructor); //TODO: add authentication
 
+apiRouter.route('/getInstructor')
+    .post(InstructorController.getInstructor);
+
 apiRouter.route('/course')
 	.post(CourseController.postCourse)
 	.get(CourseController.getCourse);
@@ -98,6 +102,10 @@ apiRouter.route('/course')
 apiRouter.route('/sexyGuardian')
 	.post(SexyGuardianController.postGuardian)
 	.get(SexyGuardianController.getGuardian); //TODO: add authentication
+
+apiRouter.route('/student')
+    .post(StudentController.postStudent)
+    .get(StudentController.getStudent);
 
 
 app.route('/authenticate')
@@ -114,4 +122,4 @@ app.get('/', function(req, res) {
 });
 
 app.listen(port);
-console.log("Server running at 8080");
+console.log("Server running at " + port);

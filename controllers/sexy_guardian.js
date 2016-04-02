@@ -6,7 +6,7 @@ exports.postGuardian = function(req, res, done){
 	//create new Guardian
 	console.log('Trying to add Guardian to database');
 
-	var Sexy_Guardian = new ({
+	var sexy_guardian = new Sexy_Guardian({
 		first: req.body.first,
     	last: req.body.last,
     	instructor_id: req.body.instructor_id,
@@ -15,7 +15,7 @@ exports.postGuardian = function(req, res, done){
 	});
 
 	//Save guardian
-	Sexy_Guardian.save(function(err){
+	sexy_guardian.save(function(err){
 		if(err){
 			console.log('Add Guardian failed');
 			res.send(err)
