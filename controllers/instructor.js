@@ -33,10 +33,10 @@ exports.getInstructor = function(req, res){
 };
 
 exports.getInstructorNow = function(req, res){
-	Instructor.findOne({ 'email' : req.body.email}, function(err, instructor){
+	Instructor.findOne({ 'email' : req.params.email}, function(err, instructor){
 		if(err) res.send(err);
 
-		console.log("Finding course: " + req.body.email);
+		console.log("Finding course: " + req.params.email);
 		console.log(JSON.stringify(instructor, null, 2));
 
 		//success

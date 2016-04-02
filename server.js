@@ -92,7 +92,7 @@ apiRouter.route('/instructor')
 	.post(InstructorController.postInstructor)
 	.get(InstructorController.getInstructor); //TODO: add authentication
 
-apiRouter.route('/getInstructor')
+apiRouter.route('/instructor/{email}')
     .post(InstructorController.getInstructor);
 
 apiRouter.route('/course')
