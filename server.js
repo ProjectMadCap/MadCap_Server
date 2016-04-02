@@ -8,6 +8,9 @@ var jwt    = require('jsonwebtoken'); // used to create, sign, and verify tokens
 var config = require('./config'); // get our config file
 var app = express();
 
+//Add Controllers
+var InstructorController = require('./controllers/instructor');
+
 // =======================
 // configuration =========
 // =======================
@@ -39,6 +42,14 @@ app.get('/setup', function(req, res) {
         res.json({ success: true });
     });
 });
+
+var apiRouter = express.Router();
+
+//Endpoint for api/Instructor
+apiRouter.route('/Instructor')
+	.post(InstructorController.postInstructor);
+
+app.use('/api', apiRouter)
 
 app.listen(port);
 console.log("Server running at 8080");
