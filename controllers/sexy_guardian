@@ -1,0 +1,32 @@
+//Load Models
+var Sexy_Guardian = require("../models/sexy_guardian");
+
+//Create endpoint for /api/sexy_guardian for post
+exports.postGuardian = function(req, res, done){
+	//create new Guardian
+	console.log('Trying to add Guardian to database');
+
+	var Sexy_Guardian = new ({
+		first: req.body.first,
+    	last: req.body.last,
+    	instructor_id: req.body.instructor_id,
+    	email: req.body.email,
+    	password: req.body.password
+	});
+
+	//Save guardian
+	Sexy_Guardian.save(function(err){
+		if(err){
+			console.log('Add Guardian failed');
+			res.send(err)
+		}
+		else{
+			console.log('Successful adding of guardian');
+			res.send('Guardian added');
+		}
+	});
+};
+
+exports.getGuardian = function(req, res){
+	res.send('Authenticated');
+};

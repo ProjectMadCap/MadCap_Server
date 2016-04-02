@@ -12,7 +12,8 @@ var app = express();
 
 //Add Controllers
 var InstructorController = require('./controllers/instructor');
-var CourseController = require('./Controllers/Course');
+var CourseController = require('./controllers/course');
+var SexyGuardianController = require('./controllers/sexy_guardian');
 
 // =======================
 // configuration =========
@@ -55,12 +56,18 @@ var apiRouter = express.Router();
 
 //Endpoint for api/Instructor
 apiRouter.route('/Instructor')
-	.post(InstructorController.postInstructor);
+	.post(InstructorController.postInstructor)
+	.get(InstructorController.getInstructor); //TODO: add authentication
 
 apiRouter.route('/Course')
 	.post(CourseController.postCourse)
 	.get(CourseController.getCourse);
-	
+
+apiRouter.route('/Sexy_Guardian')
+	.post(SexyGuardianController.postGuardian)
+	.get(SexyGuardianController.getGuardian); //TODO: add authentication
+
+
 app.use('/api', apiRouter);
 
 app.get('/', function(req, res) {
