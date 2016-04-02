@@ -15,6 +15,9 @@ var InstructorController = require('./controllers/instructor');
 var AuthController = require('./controllers/auth');
 var CourseController = require('./controllers/course');
 var SexyGuardianController = require('./controllers/sexy_guardian');
+var StudentController = require('./controllers/student');
+var BehaviorController = require('./controllers/behavior');
+var BehaviorHistoryController = require('./controllers/behavior_history');
 
 // =======================
 // configuration =========
@@ -45,21 +48,29 @@ app.get('/login', function(req, res) {
     res.render('pages/login');
 });
  
+app.post('/login', function(req, res) {
+    res.send("blurb");
+});
+
+
 // register page 
 app.get('/register', function(req, res) {
     res.render('pages/register');
 });
 
-// login page 
-app.get('/home', function(req, res) {
-    res.render('pages/home');
+app.post('/register', function(req, res) {
+    var username = req.body.username;
+    console.log("%s", username)
 });
 
+<<<<<<< HEAD
 // classes page 
 app.get('/classes', function(req, res) {
     res.render('pages/classes');
 });
 
+=======
+>>>>>>> origin/master
 
 app.get('/setup', function(req, res) {
 
@@ -86,19 +97,47 @@ app.get('/setup', function(req, res) {
 
 var apiRouter = express.Router();
 
-//Endpoint for api/Instructor
+//----------------------------------------------------------------------------
 apiRouter.route('/instructor')
 	.post(InstructorController.postInstructor)
 	.get(InstructorController.getInstructor); //TODO: add authentication
 
+apiRouter.route('/instructor/{email}')
+    .post(InstructorController.getInstructor);
+//----------------------------------------------------------------------------
 apiRouter.route('/course')
-	.post(CourseController.postCourse)
+	.post(CourseController.postCourse);
+
+apiRouter.route('/course/{_id}')
 	.get(CourseController.getCourse);
+
+//----------------------------------------------------------------------------
 
 apiRouter.route('/sexyGuardian')
 	.post(SexyGuardianController.postGuardian)
 	.get(SexyGuardianController.getGuardian); //TODO: add authentication
 
+apiRouter.route('sexyGuardian/{email}')
+	.get(SexyGuardianController.getGuardianNow);
+
+apiRouter.route('/student')
+    .post(StudentController.postStudent)
+    .get(StudentController.getStudent);
+
+//----------------------------------------------------------------------------
+apiRouter.route('/behavior')
+	.post(BehaviorController.postBehavior);
+
+apiRouter.route('/behavior/{_id}')
+	.get(BehaviorController.getBehavior);
+//----------------------------------------------------------------------------
+
+apiRouter.route('/behavior_history')
+	.post(BehaviorHistoryController.postBehaviorHistory);
+
+apiRouter.route('/behavior_history/{_id}')
+	.get(BehaviorHistoryController.getBehaviorHistory);
+//----------------------------------------------------------------------------
 
 app.route('/authenticate')
     .post(AuthController.authenticateInstructor);
@@ -114,4 +153,4 @@ app.get('/', function(req, res) {
 });
 
 app.listen(port);
-console.log("Server running at 80");
+console.log("Server running at " + port);

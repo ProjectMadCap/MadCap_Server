@@ -30,3 +30,16 @@ exports.postGuardian = function(req, res, done){
 exports.getGuardian = function(req, res){
 	res.send('Authenticated');
 };
+
+exports.getGuardianNow = function(req, res){
+	Sexy_Guardian.findOne({ 'email' : req.params.email}, function(err, sexy_guardian){
+		if(err) res.send(err);
+
+		console.log("Finding Guardian " + req.params.email);
+		console.log(JSON.stringify(sexy_guardian, null, 2));
+
+		//success
+		res.json(sexy_guardian);
+
+	});
+};
