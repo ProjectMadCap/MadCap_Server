@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+
+<!--META-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>My Classes</title>
+
+<!--STYLESHEETS-->
+<link href="" rel="stylesheet" type="text/css" />
+
+<!--SCRIPTS-->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+<!--Slider-in icons-->
+<script type="text/javascript">
+$(document).ready(function() {
+
+
+});
+</script>
+
+</head>
+<body>
+
+<!--CLASS FORM-->
+<form name="class-form" action="/api/course" method="post">
+
+    <!--HEADER-->
+    <div class="header">
+    <!--TITLE--><h1>Class Form</h1><!--END TITLE-->
+    </div>
+    <!--END HEADER-->
+    
+    <!--CONTENT-->
+    <div>
+    Class Name: <input name="name" type="text" /><br>
+    Grade Level:  <select name="grade_level">
+                    <option value=""></option>
+                    <option value="K">K</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                </select><br>
+    Description:      <textarea name="description" rows="4" cols="50"></textarea>
+    
+    <!--INSTRUCTOR_ID HARDCODED RIGHT HERE -->
+    <input name="instructor_id" type="number" hidden="" value="123" />
+    </div>
+    <!--END CONTENT-->
+    
+    <!--FOOTER-->
+    <div>
+            <button><a href="/classes" class="button" style="text-decoration:none">Back</a></button>
+    <!--ADD CLASS BUTTON--><input type="submit" name="submit" value="Add Class" class="button" /><!--END REGISTER BUTTON-->
+    </div>
+    <!--END FOOTER-->
+
+</form>
+<!--END LOGIN FORM-->
+
+
+</body>
+</html>

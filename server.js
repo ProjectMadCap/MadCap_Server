@@ -70,7 +70,7 @@ app.get('/classes', function(req, res) {
 });
 
 // classForm page
-app.get('/classes', function(req, res) {
+app.get('/classForm', function(req, res) {
     res.render('pages/classForm');
 });
 
