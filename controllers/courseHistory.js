@@ -30,3 +30,14 @@ exports.getCourseHistory = function(req, res){
         res.send(courseHistory);
     });
 };
+
+exports.getCourseWeek = function(req, res){
+    CourseHistory.find({'student_id': req.params.student_id, 'week': req.params.week}, function(err, courseHistoryWeek){
+        if(err) res.send(err);
+
+        console.log('find courseHistoryWeek ' + req.params.week + " for " + req.params.student_id);
+        console.log(JSON.stringify(courseHistoryWeek, null, 2));
+
+        res.send(courseHistoryWeek);
+    });
+};

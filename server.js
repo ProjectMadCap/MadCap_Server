@@ -115,6 +115,8 @@ apiRouter.route('/courseHistory')
 apiRouter.route('/courseHistory/:student_id')
     .get(CourseHistoryController.getCourseHistory);
 
+apiRouter.route('/courseHistoryWeek/:student_id/:week')
+	.get(CourseHistoryController.getCourseWeek);
 //----------------------------------------------------------------------------
 apiRouter.route('/behavior')
 	.post(BehaviorController.postBehavior);

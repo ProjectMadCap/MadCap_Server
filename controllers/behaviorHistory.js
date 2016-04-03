@@ -38,5 +38,7 @@ exports.getBehaviorWeek = function(req, res){
 
 		console.log('find behaviorHistoryWeek ' + req.params.week + " for " + req.params.student_id);
 		console.log(JSON.stringify(behaviorHistoryWeek, null, 2));
+
+		res.send(behaviorHistoryWeek);
 	});
 };
