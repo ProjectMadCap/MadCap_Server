@@ -8,6 +8,7 @@
 
 <!--STYLESHEETS-->
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="styles.css" rel="stylesheet" type="text/css" />
 
 <!--SCRIPTS-->
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
@@ -28,7 +29,7 @@ $(document).ready(function() {
     //Looks up all guardians with instructor id of 123
     $.ajax({
         type: 'GET', 
-        url: 'http://localhost/api/sexyGuardians/123', 
+        url: 'http://45.55.142.81/api/sexyGuardians/123', 
         dataType: 'json',
         success: function (data) { 
             console.log(data);
@@ -36,7 +37,7 @@ $(document).ready(function() {
                 //Looks up all students with guardian_id pertaining to instructor
                 $.ajax({
                     type: 'GET',
-                    url: 'http://localhost/api/student/' + value._id,
+                    url: 'http://45.55.142.81/api/student/' + value._id,
                     dataType: 'json',
                     success: function (data) {
                         $.each(data, function(index, value) {

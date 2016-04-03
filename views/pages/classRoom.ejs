@@ -8,6 +8,7 @@
 
 <!--STYLESHEETS-->
 <link href="" rel="stylesheet" type="text/css" />
+<link href="styles.css" rel="stylesheet" type="text/css" />
 
 <!--SCRIPTS-->
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
@@ -39,7 +40,7 @@ $(document).ready(function() {
     //Looks up all guardians with instructor id of 123
     $.ajax({
         type: 'GET', 
-        url: 'http://localhost/api/sexyGuardians/123', 
+        url: 'http://45.55.142.81/api/sexyGuardians/123', 
         dataType: 'json',
         success: function (data) { 
             console.log(data);
@@ -53,7 +54,37 @@ $(document).ready(function() {
 </script>
 
 </head>
+
+<style type="text/css">
+
+body{
+background: #3498db;
+}
+.backgrnd{
+background: #ecf0f1;
+
+}
+
+.padding20{
+padding: 20px;
+}
+
+.margin100{
+margin: 100px 0px;
+}
+
+.margin20{
+margin: 20px 0px;
+}
+
+
+</style>
+
+
 <body>
+<div class="container">
+<div class="row margin20">
+<div class="col-md-10 col-md-offset-1 backgrnd padding20 margin20">
 
 <!--CLASS FORM-->
 <form name="class-form" onsubmit="event.preventDefault(); myFunction();">
@@ -98,6 +129,10 @@ $(document).ready(function() {
 
 </form>
 <!--END LOGIN FORM-->
+
+</div>
+</div>
+</div>
 
 
 </body>

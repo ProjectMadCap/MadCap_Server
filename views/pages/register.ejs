@@ -8,6 +8,7 @@
 
 <!--STYLESHEETS-->
 <link href="" rel="stylesheet" type="text/css" />
+<link href="styles.css" rel="stylesheet" type="text/css" />
 
 <!--SCRIPTS-->
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
@@ -23,7 +24,7 @@
     $.ajax({ 
         type: 'POST',
         data: formData, 
-        url: 'http://localhost/api/instructor/', 
+        url: 'http://45.55.142.81/api/instructor/', 
         dataType: 'json',
         encode: true, 
         success: function (data) { 
