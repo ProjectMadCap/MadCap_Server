@@ -51,10 +51,12 @@ exports.authenticateParent = function(req, res){
                 // check if password matches
                 sexyGuardian.verifyPassword(req.body.password, function(err, isMatch){
                     console.log(err + "\n\t" + isMatch);
-                    if(err)
+                    if(err) {
                         res.json({success: false, message: 'Authentication failed. Error:' + err});
-                    if(!isMatch)
+                    }
+                    if(!isMatch) {
                         res.json({success: false, message: 'Authentication failed. Wrong password.'});
+                    }
                     // if user is found and password is right
                     // create a token
                     var token = jwt.sign(sexyGuardian, config.secret, {
@@ -63,11 +65,11 @@ exports.authenticateParent = function(req, res){
                     var sess = req.session;
                     sess.token = token;
                     // return the information including token as JSON
-                    res.json({
-                        success: true,
-                        message: 'Enjoy your token!',
-                        token: token
-                    });
+                    //res.json({
+                    //    success: true,
+                    //    message: 'Enjoy your token!',
+                    //    token: token
+                    //});
                 });
             }
 
