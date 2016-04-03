@@ -74,6 +74,11 @@ app.get('/classForm', function(req, res) {
     res.render('pages/classForm');
 });
 
+// classRoom page
+app.get('/classRoom', function(req, res) {
+    res.render('pages/classRoom');
+});
+
 // students page
 app.get('/students', function(req, res) {
     res.render('pages/students');

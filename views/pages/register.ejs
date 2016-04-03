@@ -1,108 +1,72 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
-
 <head>
 
 <!--META-->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Registration</title>
+
 <!--STYLESHEETS-->
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="" rel="stylesheet" type="text/css" />
+
 <!--SCRIPTS-->
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
 
+<script type="text/javascript">
+    function myFunction() {
+    var formData = {
+        'first': $('input[name=firstName]').val(),
+        'last': $('input[name=lastName]').val(),
+        'email': $('input[name=email]').val(),
+        'password': $('input[name=password]').val(),
+    };
+    $.ajax({ 
+        type: 'POST',
+        data: formData, 
+        url: 'http://localhost/api/instructor/', 
+        dataType: 'json',
+        encode: true, 
+        success: function (data) { 
+            console.log(data);
+            console.log("Submitting: " + formData);
+        }
+    });
+    alert("instructor successfully created!");
+};
 
-
-
-<style type="text/css">
-body {
-background: #3498db;
-}
-.white-bg{
-background: #2ecc71;
-}
-
-.margin40{
-margin: 40px 0px;
-}
-
-.padding30{
-padding: 30px 20px ;
-}
-</style>
-
+</script>
 
 </head>
-  
-  
-
-  
-  
-  
 <body>
 
-<!--LOGIN FORM-->
+<!--REGISTER FORM-->
 <!--CHANGE LOGIN FORM CLASS IN CSS-->
-
+<form name="register-form" onsubmit="event.preventDefault(); myFunction();">
 
     <!--HEADER-->
-
-    <!--END HEADER-->
-    
-    <!--CONTENT-->
-
-<div class="container" style="background:rgba(0,0,0,0)">
-
-
-<div class="row margin40" >
-<div class="col-md-8 col-md-offset-2 white-bg padding30">
     <div class="header">
     <!--TITLE--><h1>Registration</h1><!--END TITLE-->
     </div>
-<form>
-    <div style= "margin: 15px 0px"  >
-        <label for="exampleInputName1">First Name:</label>
-        <input type="text" class="form-control" id="exampleInputName1" placeholder="First Name">
+    <!--END HEADER-->
+    
+    <!--CONTENT-->
+    <div>
+    First Name: <input name="firstName" type="text" class="input firstName" required="required" /><br><br>
+    Last Name:  <input name="lastName" type="text" class="input lastName" required="required"/><br><br>
+    Email:      <input name="email" type="text" class="input email" required="required"/><br><br>
+    Password:   <input name="password" type="password" class="input password" required="required"/>
     </div>
-    
-    <div style= "margin-bottom: 20px">
-        <label for="exampleInputName2">Last Name:</label>
-        <input type="text" class="form-control" id="exampleInputName2" placeholder="Last Name">
-    </div>
-    
-    <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-    </div>
-    
-    <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-    </div>
-    
-</form>
-        <div>
-            <button><a href="/login" class="button" style="text-decoration:none">Back</a></button>
-        <!--REGISTER BUTTON--><input type="submit" name="submit" value="Register" class="button" /><!--END REGISTER BUTTON-->
-    
-        </div>
-</div>
-</div>
- 
-</div>
-  
-
     <!--END CONTENT-->
     
     <!--FOOTER-->
-
+    <div>
+            <br><button><a href="/login" class="button" style="text-decoration:none">Back</a></button>
+    <!--REGISTER BUTTON--><input type="submit" name="submit" value="Register" class="button" /><!--END REGISTER BUTTON-->
+    </div>
     <!--END FOOTER-->
 
-
-
+</form>
 <!--END LOGIN FORM-->
 
 </body>
-  
-
 </html>

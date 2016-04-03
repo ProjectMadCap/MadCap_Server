@@ -7,7 +7,7 @@
 <title>My Classes</title>
 
 <!--STYLESHEETS-->
-<link href="" rel="stylesheet" type="text/css" />
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 
 <!--SCRIPTS-->
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
@@ -22,7 +22,7 @@ $(document).ready(function() {
             console.log(data);
             $.each(data, function(index, value) {
                 console.log(value);
-                $('#classes').append("<li>" + "<a href='/classForm'>" + value.name + "</li>");
+                $('#classes').append("<li>" + "<a href='/classRoom'>" + value.name + "</li>");
             });
         }
     });
@@ -30,8 +30,37 @@ $(document).ready(function() {
 </script>
 
 </head>
-<body>
 
+<style type="text/css">
+body{
+background: #3498db;
+}
+
+ul{
+line-style-type: none;
+font-color: red;
+}
+
+.backgrnd{
+background: #ecf0f1;
+}
+
+.padding20{
+padding: 20px;
+}
+.margin20{
+margin: 20px 100px;
+}
+
+</style>
+
+
+
+
+<body>
+<div class="container">
+<div class="row margin20">
+<div class="col-md-10 col-md-offset-1 backgrnd padding20 margin20">
 <!--CLASSES-->
     <main>
 
@@ -39,11 +68,13 @@ $(document).ready(function() {
     <div data-role="page" id="pageone">
         <div data-role="main" class="ui-content">
             <h2>My Classes</h2>
-            <ul id="classes" data-role="listview">
-            </ul>
-    </div>
+            <div id="styles">
+                <ul id="classes" data-role="listview" >
+                </ul>
+            </div>
+        </div>
 
-</div> 
+    </div> 
 
         <button><a href="/home" class="button" style="text-decoration:none">Back</a></button>
         <button><a href="/classForm" class="button" style="text-decoration:none">Add Class</a></button>
@@ -54,11 +85,3 @@ $(document).ready(function() {
     
 
     </main>
-
-
-    <!--END CONTENT-->
-        <!--FOOTER-->
-    <!--END FOOTER-->
-
-</body>
-</html>

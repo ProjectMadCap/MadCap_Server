@@ -13,28 +13,34 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
 <!--Slider-in icons-->
 <script type="text/javascript">
-$(document).ready(function() {
+function myFunction() {
+    var formData = {
+        'first': $('input[name=first]').val(),
+        'last': $('input[name=last]').val(),
+        'instructor_id': $('input[name=instructor_id]').val(),
+        'email': $('input[name=email]').val(),
+        'password': $('input[name=password]').val()
+    };
     $.ajax({ 
-        type: 'GET', 
-        url: '', 
+        type: 'POST',
+        data: formData, 
+        url: 'http://localhost/api/sexyGuardian/', 
         dataType: 'json',
+        encode: true, 
         success: function (data) { 
             console.log(data);
-            $.each(data, function(index, value) {
-                console.log(value);
-                
-            });
+            console.log("Submitting: " + formData);
         }
     });
-
-});
+    alert("Student successfully created!");
+};
 </script>
 
 </head>
 <body>
 
 <!--CLASS FORM-->
-<form name="parent-form" action="/api/sexyGuardian" method="post">
+<form name="parent-form" onsubmit="event.preventDefault(); myFunction();">
 
     <!--HEADER-->
     <div class="header">

@@ -14,32 +14,33 @@
 <!--Slider-in icons-->
 <script type="text/javascript">
 function myFunction() {
-        var parentEmail = document.getElementById("parentEmail").value;
-        $.ajax({ 
-            type: 'GET', 
-            url: 'http://localhost/api/sexyGuardian/' + parentEmail, 
-            dataType: 'json',
-            success: function (data) { 
-                console.log(data);
-                var formData = {
-                    'first': $('input[name=first]').val(),
-                    'last': $('input[name=last]').val(),
-                    'sexy_guardian_id': data._id
-                };
-                console.log("Submitting: " + formData);
-                        $.ajax({ 
-                            type: 'POST',
-                            data: formData,
-                            dataType: 'json',
-                            url: 'http://localhost/api/student/',
-                            encode: true, 
-                            success: function (data) { 
-                            console.log(data);                
-                        }
-                    });
+    var parentEmail = document.getElementById("parentEmail").value;
+    $.ajax({ 
+        type: 'GET', 
+        url: 'http://localhost/api/sexyGuardian/' + parentEmail, 
+        dataType: 'json',
+        success: function (data) { 
+            console.log(data);
+            var formData = {
+                'first': $('input[name=first]').val(),
+                'last': $('input[name=last]').val(),
+               'sexy_guardian_id': data._id
+            };
+            console.log("Submitting: " + formData);
+            $.ajax({ 
+                type: 'POST',
+                data: formData,
+                dataType: 'json',
+                url: 'http://localhost/api/student/',
+                encode: true, 
+                success: function (data) { 
+                    console.log(data);                
                 }
-        });
-    };
+            });
+            alert("Student successfully created!");
+        }
+    });
+};
 
 </script>
 
