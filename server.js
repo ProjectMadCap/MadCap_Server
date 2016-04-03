@@ -8,7 +8,13 @@ var morgan = require('morgan');
 var jwt = require('jsonwebtoken');
 var config = require('./config'); // get our config file
 var Instructor = require('./models/instructor');
+
 var app = express();
+
+//SocketIO
+
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 
 //Add Controllers
 var InstructorController = require('./controllers/instructor');
@@ -22,6 +28,7 @@ var CourseHistoryController = require('./controllers/courseHistory');
 var SubjectController = require('./controllers/subject');
 var TopicController = require('./controllers/topic');
 var TopicHistoryController = require('./controllers/topicHistory');
+var Conversation = require('./controllers/conversation');
 
 // =======================
 // configuration =========
@@ -198,8 +205,12 @@ apiRouter.use(function(req, res, next) {
 
 app.use('/api', apiRouter);
 
-app.get('/', function(req, res) {
-    res.send('Hello! The API is at http://localhost:' + port + '/api');
+// app.get('/', function(req, res) {
+//     res.send('Hello! The API is at http://localhost:' + port + '/api');
+// });
+
+app.get('/ho', function(req, res){
+  res.sendFile(__dirname + '/index.html');
 });
 
 app.listen(port);
