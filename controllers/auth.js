@@ -65,6 +65,7 @@ exports.authenticateParent = function(req, res){
                     var sess = req.session;
                     sess.token = token;
                     // return the information including token as JSON
+                    res.send();
                     //res.json({
                     //    success: true,
                     //    message: 'Enjoy your token!',
