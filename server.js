@@ -91,7 +91,8 @@ apiRouter.route('/course')
 
 apiRouter.route('/course/:_id')
 	.get(CourseController.getCourse);
-apiRouter.route('/courses/:instructor_id');
+apiRouter.route('/courses/:instructor_id')
+	.get(CourseController.getInstructorCourses);
 
 //----------------------------------------------------------------------------
 
