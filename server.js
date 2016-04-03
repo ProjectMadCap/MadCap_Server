@@ -74,6 +74,26 @@ app.get('/classForm', function(req, res) {
     res.render('pages/classForm');
 });
 
+// students page
+app.get('/students', function(req, res) {
+    res.render('pages/students');
+});
+
+// students page
+app.get('/studentForm', function(req, res) {
+    res.render('pages/studentForm');
+});
+
+// guardians page
+app.get('/guardians', function(req, res) {
+    res.render('pages/guardians');
+});
+
+// guardians page
+app.get('/guardianForm', function(req, res) {
+    res.render('pages/guardianForm');
+});
+
 var apiRouter = express.Router();
 
 //Endpoint for api/Instructor
@@ -101,7 +121,10 @@ apiRouter.route('/sexyGuardian')
 	.get(SexyGuardianController.getGuardian); //TODO: add authentication
 
 apiRouter.route('/sexyGuardian/:email')
-	.get(SexyGuardianController.getGuardianNow);
+	.get(SexyGuardianController.getGuardianNow); 
+
+apiRouter.route('/sexyGuardians/:instructor_id')
+    .get(SexyGuardianController.getInstructorGuardians); //Added for looking up guardian by instructor
 
 apiRouter.route('/student')
     .post(StudentController.postStudent);

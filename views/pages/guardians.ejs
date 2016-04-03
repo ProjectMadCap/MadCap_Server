@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+
+<!--META-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Parents</title>
+
+<!--STYLESHEETS-->
+<link href="" rel="stylesheet" type="text/css" />
+
+<!--SCRIPTS-->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+<!--Slider-in icons-->
+<script type="text/javascript">
+$(document).ready(function() {
+    $.ajax({ 
+        type: 'GET', 
+        url: 'http://localhost/api/sexyGuardians/123', 
+        dataType: 'json',
+        success: function (data) { 
+            console.log(data);
+            $.each(data, function(index, value) {
+                console.log(value);
+                $('#guardians').append("<li>" + "<a href='/guardianForm'>" + value.first + " " + value.last + "</li>");
+            });
+        }
+    });
+});
+</script>
+
+</head>
+<body>
+
+<!--CLASSES-->
+    <main>
+
+    <!--CONTENT-->
+    <div data-role="page" id="pageone">
+        <div data-role="main" class="ui-content">
+            <h2>Parents</h2>
+            <ul id="guardians" data-role="listview">
+            </ul>
+    </div>
+
+</div> 
+
+        <button><a href="/home" class="button" style="text-decoration:none">Back</a></button>
+        <button><a href="/guardianForm" class="button" style="text-decoration:none">Add Parent</a></button>
+    <div>
+
+
+    </div>
+    
+
+    </main>
+
+
+    <!--END CONTENT-->
+        <!--FOOTER-->
+    <!--END FOOTER-->
+
+</body>
+</html>

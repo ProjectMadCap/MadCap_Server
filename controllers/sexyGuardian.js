@@ -43,3 +43,15 @@ exports.getGuardianNow = function(req, res){
 
 	});
 };
+
+exports.getInstructorGuardians = function(req, res){
+	SexyGuardian.find({ 'instructor_id': req.params.instructor_id }, function(err, sexyGuardians){
+		if(err) res.send(err);
+
+		console.log("Finding sexyGuardians: " + req.params.instructor_id);
+		console.log(JSON.stringify(sexyGuardians, null, 2));
+
+		//success
+		res.json(sexyGuardians);
+	})
+};
