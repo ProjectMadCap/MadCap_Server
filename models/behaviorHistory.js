@@ -6,7 +6,7 @@ var BehaviorHistorySchema = new mongoose.Schema({
 
 	student_id: String,
 	behavior_id: String,
-	date: Date,
+	week: Number,
 	rating: Number,
 	description: String
 

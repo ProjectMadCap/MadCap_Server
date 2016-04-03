@@ -6,7 +6,7 @@ var TopicHistorySchema = new mongoose.Schema({
 
 	student_id: String,
 	topic_id: String,
-	date: Date,
+	week: Number,
 	rating: Number
 
 });
