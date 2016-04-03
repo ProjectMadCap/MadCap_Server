@@ -1,30 +1,31 @@
-var Behavior_History = require("../models/behavior_history");
+var BehaviorHistory = require("../models/behaviorHistory");
 
 exports.postBehaviorHistory = function(req, res, done){
 
 	console.log('Adding Behavior History')
 
-	var behavior_history = new Behavior_History({
+	var behaviorHistory = new BehaviorHistory({
+
 		student_id: req.body.student_id,
-		behavior_id: req.body.behavior_id,
+		course_id: req.body.course_id,
 		date: req.body.date,
 		rating: req.body.rating,
 		description: req.body.description
 
 	});
 
-	behavior_history.save(function(err){
+	behaviorHistory.save(function(err){
 		if(err) res.send(err);
 
-		res.send('behavior_history added');
+		res.send('behaviorHistory added');
 	});
 };
 
 exports.getBehaviorHistory = function(req, res){
-	Behavior_History.findOne({'_id': req.params._id}, function(err, behavior_history){
+	BehaviorHistory.findOne({'student_id': req.params.student_id}, function(err, behavior_history){
 		if(err) res.send(err);
 
-		console.log('find behavior_history ' + req.params._id);
+		console.log('find behaviorHistory ' + req.params.student_id);
 		console.log(JSON.stringify(behavior_history, null, 2));
 
 		res.send(behavior_history);

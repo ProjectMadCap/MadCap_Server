@@ -17,12 +17,12 @@ var CourseController = require('./controllers/course');
 var SexyGuardianController = require('./controllers/sexyGuardian');
 var StudentController = require('./controllers/student');
 var BehaviorController = require('./controllers/behavior');
-var BehaviorHistoryController = require('./controllers/behavior_history');
+var BehaviorHistoryController = require('./controllers/behaviorHistory');
 
 // =======================
 // configuration =========
 // =======================
-var port = process.env.PORT || 80; // used to create, sign, and verify tokens
+var port = process.env.PORT || 8080; // used to create, sign, and verify tokens
 mongoose.connect(config.database); // connect to database
 app.set('superSecret', config.secret); // secret variable
 
@@ -68,7 +68,7 @@ app.get('/classes', function(req, res) {
 var apiRouter = express.Router();
 
 //Endpoint for api/Instructor
-apiRouter.route('/instructor/')
+apiRouter.route('/instructor')
 	.post(InstructorController.postInstructor)
 	.get(InstructorController.getInstructor); //TODO: add authentication
 
@@ -91,8 +91,16 @@ apiRouter.route('/sexyGuardian/:email')
 	.get(SexyGuardianController.getGuardianNow);
 
 apiRouter.route('/student')
-    .post(StudentController.postStudent)
+    .post(StudentController.postStudent);
+
+apiRouter.route('/student/:sexyGuardian_id')
     .get(StudentController.getStudent);
+
+apiRouter.route('/course_history')
+    .post(CourseController.postCourseHistory);
+
+apiRouter.route('/course_history/:student_id')
+    .get(CourseController.getCourseHistory);
 
 //----------------------------------------------------------------------------
 apiRouter.route('/behavior')
@@ -105,7 +113,7 @@ apiRouter.route('/behavior/:_id')
 apiRouter.route('/behavior_history')
 	.post(BehaviorHistoryController.postBehaviorHistory);
 
-apiRouter.route('/behavior_history/{_id}')
+apiRouter.route('/behavior_history/:student_id')
 	.get(BehaviorHistoryController.getBehaviorHistory);
 //----------------------------------------------------------------------------
 

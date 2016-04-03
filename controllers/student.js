@@ -20,13 +20,13 @@ exports.postStudent = function(req, res, done){
 };
 
 exports.getStudent = function(req, res){
-	student.findOne({'_id': req.body._id}, function(err, student){
+	Student.find({'sexyGuardian_id': req.params.sexyGuardian_id}, function(err, student){
 		if(err) res.send(err);
 
-		console.log("Finding student: " + req.body._id);
+		console.log("Finding student: " + req.body.sexyGuardian_id);
 		console.log(JSON.stringify(student, null, 2));
 
 		//success
 		res.json(student);
-	})
-}
+	});
+};
