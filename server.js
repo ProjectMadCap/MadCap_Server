@@ -121,10 +121,10 @@ apiRouter.route('/behavior/:_id')
 	.get(BehaviorController.getBehavior);
 //----------------------------------------------------------------------------
 
-apiRouter.route('/behavior_history')
+apiRouter.route('/behaviorHistory')
 	.post(BehaviorHistoryController.postBehaviorHistory);
 
-apiRouter.route('/behavior_history/:student_id')
+apiRouter.route('/behaviorHistory/:student_id')
 	.get(BehaviorHistoryController.getBehaviorHistory);
 //----------------------------------------------------------------------------
 
