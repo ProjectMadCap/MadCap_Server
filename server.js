@@ -41,7 +41,7 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
-app.use(session({secret: 'secretSecrets', resave: true}));
+app.use(session({secret: 'secretSecrets', resave: false, saveUninitialized: false}));
 
 // use morgan to log requests to the console
 app.use(morgan('dev'));
