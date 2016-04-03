@@ -104,7 +104,7 @@ apiRouter.route('/sexyGuardian/:email')
 apiRouter.route('/student')
     .post(StudentController.postStudent);
 
-apiRouter.route('/student/:sexyGuardian_id')
+apiRouter.route('/student/:sexy_guardian_id')
     .get(StudentController.getStudent);
 
 apiRouter.route('/courseHistory')
