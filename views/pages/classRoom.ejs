@@ -33,6 +33,23 @@ function myFunction() {
     });
     alert("Student successfully created!");
 };
+
+$(document).ready(function() {
+    //NOTE: THIS IS UGLY AS SHIT, I KNOW...
+    //Looks up all guardians with instructor id of 123
+    $.ajax({
+        type: 'GET', 
+        url: 'http://localhost/api/sexyGuardians/123', 
+        dataType: 'json',
+        success: function (data) { 
+            console.log(data);
+            $.each(data, function(index, value) {
+                //Looks up all students with guardian_id pertaining to instructor
+            
+            });
+        }
+    });
+});
 </script>
 
 </head>
@@ -62,7 +79,8 @@ function myFunction() {
                     <option value="7">7</option>
                     <option value="8">8</option>
                 </select><br><br>
-    Description:      <textarea name="description" rows="4" cols="50" required="required"></textarea>
+    Description:    <textarea name="description" rows="4" cols="50" required="required"></textarea><br><br>
+    Student list:   <ul id="students" data-role="listview"></ul>
 
     <!--INSTRUCTOR_ID HARDCODED RIGHT HERE -->
     <input name="instructor_id" type="number" hidden="" value="123" />
@@ -72,7 +90,7 @@ function myFunction() {
     <!--FOOTER-->
     <div>
             <button><a href="/classes" class="button" style="text-decoration:none">Back</a></button>
-    <!--ADD CLASS BUTTON--><input type="submit" name="submit" value="Add Class" class="button" /><!--END REGISTER BUTTON-->
+            <input type="submit" name="submit" value="Update Class" class="button" />
     </div>
     <div>
     </div>

@@ -7,13 +7,23 @@
 <title>Students</title>
 
 <!--STYLESHEETS-->
-<link href="" rel="stylesheet" type="text/css" />
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 
 <!--SCRIPTS-->
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
 <!--Slider-in icons-->
 <script type="text/javascript">
 $(document).ready(function() {
+    var GET = {};
+    var query = window.location.search.substring(1).split("&");
+    for (var i = 0, max = query.length; i < max; i++)
+    {
+        if (query[i] === "") // check for trailing & with no param
+            continue;
+
+        var param = query[i].split("=");
+        GET[decodeURIComponent(param[0])] = decodeURIComponent(param[1] || "");
+    }
     //NOTE: THIS IS UGLY AS SHIT, I KNOW...
     //Looks up all guardians with instructor id of 123
     $.ajax({
@@ -43,7 +53,39 @@ $(document).ready(function() {
 </script>
 
 </head>
+<style type="text/css">
+
+body{
+background: #3498db;
+}
+.backgrnd{
+background: #ecf0f1;
+
+}
+
+.padding20{
+padding: 20px;
+}
+
+.margin100{
+margin: 100px 0px;
+}
+
+.margin20{
+margin: 20px 0px;
+}
+
+
+</style>
+
+
 <body>
+
+
+
+<div class="container">
+<div class="row margin20">
+<div class="col-md-10 col-md-offset-1 backgrnd padding20 margin20">
 
 <!--CLASSES-->
     <main>
@@ -72,6 +114,11 @@ $(document).ready(function() {
     <!--END CONTENT-->
         <!--FOOTER-->
     <!--END FOOTER-->
+    
+</div>
+</div>
+</div>
+
 
 </body>
 </html>

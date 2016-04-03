@@ -7,7 +7,7 @@
 <title>Home</title>
 
 <!--STYLESHEETS-->
-<link href="static/css/style.css" rel="stylesheet" type="text/css" />
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 
 <!--SCRIPTS-->
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
@@ -18,28 +18,113 @@ $(document).ready(function() {
 });
 </script>
 
+<style type="text/css">
+
+
+#header {
+	margin: 0 auto;
+	max-width: 960px;
+}
+#header h1 {
+	font-size: 50px;
+	font-weight: normal;
+	line-height: 50px;
+	margin: 0;
+	padding: 30px 0;
+	text-align: left;
+}
+#header h1 a {
+	color: #99fa99;
+	text-decoration: none;
+}
+#header h1 a span {
+	color: #27ae60;
+	display: block;
+	font-family: 'nixie_oneregular';
+	font-size: 26px;
+	text-transform: uppercase;
+}
+#header ul#navigation {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	text-align: left;
+}
+
+#header ul#navigation li a {
+	color: #27ae60;
+	font-size: 18px;
+	padding: 0 46px;
+	text-align: left;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+body{
+background-image: url("back.jpg");
+background-size: auto;
+}
+
+.backgrnd{
+background: #ecf0f1;
+border: 1px solid #bdc3c7;
+}
+.padding20{
+padding: 15px 0px 200px 0px;
+}
+.margin20{
+margin: 30px;
+}
+</style>
+
 </head>
+
 <body>
 
-<!--HOME-->
-	<main>
 
+<div class="container">
+<div class="row">
+<div class="col-md-10 col-md-offset-3 backgrnd padding20 margin20" >
+<!--HOME-->   
+
+		
+			<div id="header">
+		<h1><a href="index.html"> <span>home</span></a></h1>
+		<ul id="navigation">
+			<li class="current">
+				<a href="/classes">My Classes</a>
+				
+			</li>
+			<li>
+				<a href="/students">Students</a>
+			</li>
+				
+			
+			<li>
+				<a href="/guardians">Parents</a>
+			</li>
+			<li>
+				<a href="/login">Log Out</a>
+			</li>
+		</ul>
+	</div>
+		
+	<main>
+	
 	<!--HEADER-->
-    	<div>
-    <!--TITLE--><h1>Home</h1><!--END TITLE-->
-    	</div>
+
     <!--END HEADER-->
-	<!--CONTENT-->
-    	<div>
-			<button><a href="/classes" class="button" style="text-decoration:none">My Classes</a></button><br><br>
-			<button><a href="/students" class="button" style="text-decoration:none">Students</a></button><br><br>
-			<button><a href="/guardians" class="button" style="text-decoration:none">Parents</a></button>
-    	</div>
-    <!--END CONTENT-->
+	<div class="btn-group btn-group-lg" role="group" aria-label="..."></div>
+
     
 
 	</main>
 <!--END LOGIN FORM-->
+</div>
+</div>
+</div>
+
+
 
 </body>
 </html>
