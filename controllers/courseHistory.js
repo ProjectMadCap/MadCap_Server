@@ -7,7 +7,7 @@ exports.postCourseHistory = function(req, res, done){
     var courseHistory = new CourseHistory({
         student_id: req.body.student_id,
         course_id: req.body.course_id,
-        date: req.body.date,
+        week: req.body.week,
         rating: req.body.rating,
         description: req.body.description
 

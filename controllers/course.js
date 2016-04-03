@@ -26,7 +26,7 @@ exports.postCourse = function(req, res, done){
 };
 
 exports.getCourse= function(req, res){
-	course.findOne({ '_id' : req.params._id}, function(err, course){
+	Course.findOne({ '_id' : req.params._id}, function(err, course){
 		if(err) res.send(err);
 
 		console.log("Finding course: " + req.params._id);
@@ -35,4 +35,16 @@ exports.getCourse= function(req, res){
 		//success
 		res.json(course);
 	});
+};
+
+exports.getInstructorCourses = function(req, res){
+	Course.find({ 'instructor_id': req.params.instructor_id }, function(err, courses){
+		if(err) res.send(err);
+
+		console.log("Finding courses: " + req.params.instructor_id);
+		console.log(JSON.stringify(courses, null, 2));
+
+		//success
+		res.json(courses);
+	})
 };

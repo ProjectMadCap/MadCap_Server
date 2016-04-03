@@ -8,7 +8,7 @@ exports.postBehaviorHistory = function(req, res, done){
 
 		student_id: req.body.student_id,
 		course_id: req.body.course_id,
-		date: req.body.date,
+		week: req.body.week,
 		rating: req.body.rating,
 		description: req.body.description
 
@@ -29,5 +29,14 @@ exports.getBehaviorHistory = function(req, res){
 		console.log(JSON.stringify(behaviorHistory, null, 2));
 
 		res.send(behaviorHistory);
+	});
+};
+
+exports.getBehaviorWeek = function(req, res){
+	BehaviorHistory.find({'student_id': req.params.student_id, 'week': req.params.week}, function(err, behaviorHistoryWeek){
+		if(err) res.send(err);
+
+		console.log('find behaviorHistoryWeek ' + req.params.week + " for " + req.params.student_id);
+		console.log(JSON.stringify(behaviorHistoryWeek, null, 2));
 	});
 };
