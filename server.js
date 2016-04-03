@@ -129,7 +129,8 @@ apiRouter.route('/behaviorHistory')
 apiRouter.route('/behaviorHistory/:student_id')
 	.get(BehaviorHistoryController.getBehaviorHistory);
 
-
+apiRouter.route('/behaviorHistoryWeek/:student_id/:week')
+	.get(BehaviorHistoryController.getBehaviorWeek);
 //----------------------------------------------------------------------------
 
 apiRouter.route('/subject')
