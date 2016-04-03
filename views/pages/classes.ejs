@@ -14,8 +14,18 @@
 <!--Slider-in icons-->
 <script type="text/javascript">
 $(document).ready(function() {
-
-
+    $.ajax({ 
+        type: 'GET', 
+        url: 'http://localhost/api/courses/123', 
+        dataType: 'json',
+        success: function (data) { 
+            console.log(data);
+            $.each(data, function(index, value) {
+                console.log(value);
+                $('#classes').append("<li>" + "<a href='/classForm'>" + value.name + "</li>");
+            });
+        }
+    });
 });
 </script>
 
@@ -30,11 +40,9 @@ $(document).ready(function() {
         <div data-role="main" class="ui-content">
             <h2>My Classes</h2>
             <ul id="classes" data-role="listview">
-                <li><a href="">Math</a></li>
-                <li><a href="">Science</a></li>
-                <li><a href="">Yoga</a></li>
             </ul>
     </div>
+
 </div> 
 
         <button><a href="/home" class="button" style="text-decoration:none">Back</a></button>
