@@ -107,11 +107,11 @@ apiRouter.route('/student')
 apiRouter.route('/student/:sexyGuardian_id')
     .get(StudentController.getStudent);
 
-apiRouter.route('/course_history')
-    .post(CourseController.postCourseHistory);
+apiRouter.route('/courseHistory')
+    .post(CourseHistoryController.postCourseHistory);
 
-apiRouter.route('/course_history/:student_id')
-    .get(CourseController.getCourseHistory);
+apiRouter.route('/courseHistory/:student_id')
+    .get(CourseHistoryController.getCourseHistory);
 
 //----------------------------------------------------------------------------
 apiRouter.route('/behavior')
@@ -126,13 +126,7 @@ apiRouter.route('/behaviorHistory')
 
 apiRouter.route('/behaviorHistory/:student_id')
 	.get(BehaviorHistoryController.getBehaviorHistory);
-//----------------------------------------------------------------------------
 
-apiRouter.route('/courseHistory')
-	.post(CourseHistoryController.postCourseHistory);
-
-apiRouter.route('/courseHistory/:id')
-	.get(CourseHistoryController.getCourseHistory);
 
 //----------------------------------------------------------------------------
 

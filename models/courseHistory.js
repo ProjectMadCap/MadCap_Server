@@ -11,4 +11,4 @@ var CourseHistorySchema = new mongoose.Schema({
 });
 
 //Export the model=
-module.exports = mongoose.model('TopicHistory', CourseHistorySchema);
+module.exports = mongoose.model('CourseHistory', CourseHistorySchema);

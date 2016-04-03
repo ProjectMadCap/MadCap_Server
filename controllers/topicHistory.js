@@ -1,6 +1,6 @@
 var TopicHistory = require("../models/topicHistory");
 
-exports.postCourseHistory = function(req, res, done){
+exports.postTopicHistory = function(req, res, done){
 
     console.log('Adding Course History')
 
