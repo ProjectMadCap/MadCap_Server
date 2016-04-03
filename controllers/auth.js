@@ -50,6 +50,7 @@ exports.authenticateParent = function(req, res){
 
                 // check if password matches
                 sexyGuardian.verifyPassword(req.body.password, function(err, isMatch){
+                    console.log(err + "\n\t" + isMatch);
                     if(err)
                         res.json({success: false, message: 'Authentication failed. Error:' + err});
                     if(!isMatch)
@@ -57,7 +58,7 @@ exports.authenticateParent = function(req, res){
                     // if user is found and password is right
                     // create a token
                     var token = jwt.sign(sexyGuardian, config.secret, {
-                        expiresInMinutes: 1440 // expires in 24 hours
+                        expiresIn: 86400 // expires in 24 hours
                     });
                     var sess = req.session;
                     sess.token = token;

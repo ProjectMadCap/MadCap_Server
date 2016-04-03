@@ -22,12 +22,12 @@ exports.postBehaviorHistory = function(req, res, done){
 };
 
 exports.getBehaviorHistory = function(req, res){
-	BehaviorHistory.findOne({'student_id': req.params.student_id}, function(err, behavior_history){
+	BehaviorHistory.find({'student_id': req.params.student_id}, function(err, behaviorHistory){
 		if(err) res.send(err);
 
 		console.log('find behaviorHistory ' + req.params.student_id);
-		console.log(JSON.stringify(behavior_history, null, 2));
+		console.log(JSON.stringify(behaviorHistory, null, 2));
 
-		res.send(behavior_history);
+		res.send(behaviorHistory);
 	});
 };

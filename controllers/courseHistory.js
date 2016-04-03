@@ -21,7 +21,7 @@ exports.postCourseHistory = function(req, res, done){
 };
 
 exports.getCourseHistory = function(req, res){
-    CourseHistory.findOne({'student_id': req.params.student_id}, function(err, courseHistory){
+    CourseHistory.find({'student_id': req.params.student_id}, function(err, courseHistory){
         if(err) res.send(err);
 
         console.log('find courseHistory ' + req.params.student_id);

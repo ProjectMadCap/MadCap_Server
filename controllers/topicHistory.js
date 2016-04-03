@@ -21,7 +21,7 @@ exports.postTopicHistory = function(req, res, done){
 };
 
 exports.getTopicHistory = function(req, res){
-    TopicHistory.findOne({'student_id': req.params.student_id}, function(err, topicHistory){
+    TopicHistory.find({'student_id': req.params.student_id}, function(err, topicHistory){
         if(err) res.send(err);
 
         console.log('find topicHistory ' + req.params.student_id);
