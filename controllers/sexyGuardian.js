@@ -9,7 +9,7 @@ exports.postGuardian = function(req, res, done){
 	var sexyGuardian = new SexyGuardian({
 		first: req.body.first,
     	last: req.body.last,
-    	instructor_id: req.body.instructor_id,
+    	instructor_id: req.session.instructor_id,
     	email: req.body.email,
     	password: req.body.password
 	});
@@ -45,10 +45,10 @@ exports.getGuardianNow = function(req, res){
 };
 
 exports.getInstructorGuardians = function(req, res){
-	SexyGuardian.find({ 'instructor_id': req.params.instructor_id }, function(err, sexyGuardians){
+	SexyGuardian.find({ 'instructor_id': req.session.instructor_id }, function(err, sexyGuardians){
 		if(err) res.send(err);
 
-		console.log("Finding sexyGuardians: " + req.params.instructor_id);
+		console.log("Finding sexyGuardians: " + req.session.instructor_id);
 		console.log(JSON.stringify(sexyGuardians, null, 2));
 
 		//success

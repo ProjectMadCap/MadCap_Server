@@ -135,7 +135,7 @@ apiRouter.route('/sexyGuardian')
 apiRouter.route('/sexyGuardian/:email')
 	.get(SexyGuardianController.getGuardianNow); 
 
-apiRouter.route('/sexyGuardians/:instructor_id')
+apiRouter.route('/sexyGuardians')
     .get(SexyGuardianController.getInstructorGuardians); //Added for looking up guardian by instructor
 
 apiRouter.route('/student')
@@ -199,6 +199,9 @@ app.route('/authenticate')
 
 app.post('/authenticate/device', AuthController.authenticateParent);
 
+apiRouter.get('/session', function(req, res) { res.json(req.session); });
+
+
 apiRouter.use(function(req, res, next) {
     AuthController.authentication(req, res, next);
 });
@@ -217,4 +220,8 @@ console.log("Server running at " + port);
 
 io.on('connection', function(socket){
 	console.log('a user connected');
+	socket.on('message', function(message){
+		console.log(message.text);
+		this.broadcast.emit("message", message);
+	});
 });

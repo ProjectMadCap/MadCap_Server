@@ -28,6 +28,7 @@ exports.authenticateInstructor = function(req, res) {
                     });
                     var sess = req.session;
                     sess.token = token;
+		    sess.instructor_id = instructor._id
                     // return the information including token as JSON
                     res.redirect('/home');
                 });

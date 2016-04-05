@@ -29,7 +29,7 @@ $(document).ready(function() {
     //Looks up all guardians with instructor id of 123
     $.ajax({
         type: 'GET', 
-        url: 'http://45.55.142.81/api/sexyGuardians/123', 
+        url: '/api/sexyGuardians', 
         dataType: 'json',
         success: function (data) { 
             console.log(data);
@@ -37,7 +37,7 @@ $(document).ready(function() {
                 //Looks up all students with guardian_id pertaining to instructor
                 $.ajax({
                     type: 'GET',
-                    url: 'http://45.55.142.81/api/student/' + value._id,
+                    url: '/api/student/' + value._id,
                     dataType: 'json',
                     success: function (data) {
                         $.each(data, function(index, value) {

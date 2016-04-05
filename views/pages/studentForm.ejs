@@ -18,7 +18,7 @@ function myFunction() {
     var parentEmail = document.getElementById("parentEmail").value;
     $.ajax({ 
         type: 'GET', 
-        url: 'http://45.55.142.81/api/sexyGuardian/' + parentEmail, 
+        url: '/api/sexyGuardian/' + parentEmail, 
         dataType: 'json',
         success: function (data) { 
             console.log(data);
@@ -32,7 +32,7 @@ function myFunction() {
                 type: 'POST',
                 data: formData,
                 dataType: 'json',
-                url: 'http://45.55.142.81/api/student/',
+                url: '/api/student/',
                 encode: true, 
                 success: function (data) { 
                     console.log(data);                
