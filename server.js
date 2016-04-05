@@ -13,8 +13,8 @@ var app = express();
 
 //SocketIO
 
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
+var server = app.listen(80);
+var io = require('socket.io')(server);
 
 //Add Controllers
 var InstructorController = require('./controllers/instructor');
@@ -28,7 +28,7 @@ var CourseHistoryController = require('./controllers/courseHistory');
 var SubjectController = require('./controllers/subject');
 var TopicController = require('./controllers/topic');
 var TopicHistoryController = require('./controllers/topicHistory');
-var Conversation = require('./controllers/conversation');
+//var Conversation = require('./controllers/conversation');
 
 // =======================
 // configuration =========
@@ -213,5 +213,8 @@ app.get('/ho', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
 
-app.listen(port);
 console.log("Server running at " + port);
+
+io.on('connection', function(socket){
+	console.log('a user connected');
+});
