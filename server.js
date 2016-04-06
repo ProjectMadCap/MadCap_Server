@@ -1,12 +1,14 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
-var ejs = require('ejs');
+//var ejs = require('ejs');
 var session = require('express-session');
+var path = require('path');
 var passport = require('passport');
 var morgan = require('morgan');
 var jwt = require('jsonwebtoken');
 var config = require('./config'); // get our config file
+var hbs = require('express-hbs');
 var Instructor = require('./models/instructor');
 
 var app = express();
@@ -37,8 +39,14 @@ var port = process.env.PORT || 80; // used to create, sign, and verify tokens
 mongoose.connect(config.database); // connect to database
 app.set('superSecret', config.secret); // secret variable
 
-
-app.set('view engine', 'ejs');
+app.engine('hbs', hbs.express4({
+    defaultLayout: __dirname + '/views/layouts/default.hbs',
+    partialsDir: __dirname + '/views/partials',
+    layoutsDir: __dirname + '/views/layouts'
+}));
+app.set('view engine', 'hbs');
+app.set('views', path.join(__dirname, '/views'));
+//app.set('view engine', 'ejs');
 
 // use body parser so we can get info from POST and/or URL parameters
 //app.use(bodyParser.urlencoded({ extended: false }));
@@ -54,7 +62,8 @@ app.use(session({secret: 'secretSecrets', resave: false, saveUninitialized: fals
 app.use(morgan('dev'));
 
 // Use express static for images, css, and js files
-app.use('/static', express.static('public'));
+//app.use('/static', express.static('public'));
+app.use('/public', express.static('public'));
 
 // login page 
 app.get('/login', function(req, res) {
@@ -69,6 +78,10 @@ app.get('/register', function(req, res) {
 // register page 
 app.get('/home', function(req, res) {
     res.render('pages/home');
+});
+
+app.get('/behaviorForm', function(req, res){
+    res.render('pages/behaviorForm');
 });
 
 // classes page 
@@ -208,9 +221,9 @@ apiRouter.use(function(req, res, next) {
 
 app.use('/api', apiRouter);
 
-// app.get('/', function(req, res) {
-//     res.send('Hello! The API is at http://localhost:' + port + '/api');
-// });
+app.get('/', function(req, res) {
+    res.render('pages/login');
+});
 
 app.get('/ho', function(req, res){
   res.sendFile(__dirname + '/index.html');
