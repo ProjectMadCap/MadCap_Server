@@ -5,7 +5,8 @@
         function myFunction() {
             var formData = {
                 'name': $('input[name=name]').val(),
-                'grade_level': $('select[name=grade_level]').val()
+                'grade_level': $('select[name=grade_level]').val(),
+                'description': $('input[name=description]').val()
             };
             $.ajax({
                 type: 'POST',
@@ -26,17 +27,17 @@
 <div class="col-md-6 col-md-offset-1 backgrnd padding20 margin20 see-through-container">
 
     <!--CLASS FORM-->
-    <form name="behavior-form" onsubmit="event.preventDefault(); myFunction();">
+    <form name="topic-form" onsubmit="event.preventDefault(); myFunction();">
 
         <!--HEADER-->
         <div class="header">
-            <!--TITLE--><h1>Behavior Form</h1><!--END TITLE-->
+            <!--TITLE--><h1>Topic Form</h1><!--END TITLE-->
         </div>
         <!--END HEADER-->
 
         <!--CONTENT-->
         <div>
-            <input name="name" type="text" class="form-control" required="required" placeholder="Behavior Name" /><br><br>
+            <input name="name" type="text" class="form-control" required="required" placeholder="Topic Name" /><br><br>
             <select name="grade_level" class="form-control" required="required">
                 <option value="" disabled selected>--Grade Level--</option>
                 <option value="0">K</option>
@@ -54,7 +55,7 @@
 
         <!--FOOTER-->
         <div class="flex-container flex-end">
-            <!--ADD BEHAVIOR BUTTON--><input type="submit" name="submit" value="Add Behavior" class="btn btn-success footer" /><!--END REGISTER BUTTON-->
+            <!--ADD BEHAVIOR BUTTON--><input type="submit" name="submit" value="Add Topic" class="btn btn-success footer" /><!--END REGISTER BUTTON-->
         </div>
         <!--END FOOTER-->
 

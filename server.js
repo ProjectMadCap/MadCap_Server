@@ -80,6 +80,10 @@ app.get('/home', function(req, res) {
     res.render('pages/home');
 });
 
+app.get('/behaviors', function(req, res){
+    res.render('pages/behaviors');
+});
+
 app.get('/behaviorForm', function(req, res){
     res.render('pages/behaviorForm');
 });
